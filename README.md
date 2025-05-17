@@ -83,26 +83,25 @@ python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-### 3. Download and unzip the assets (data + model checkpoint)
+### 3. Download the dataset and model checkpoint
 
-Download the ZIP file `scFoundation-T2D-assets.zip` containing both the dataset and pretrained model:
+Due to GitHub's file size limitations, the dataset and model checkpoint are not included in this repository.
+
+👉 **Please contact the author directly to receive the following files:**
 
 ```
-scFoundation-T2D-assets.zip
-├── data/
-│   ├── diabetes_beta_scrna.csv
-│   └── SraRunTable.csv
-└── checkpoints/
-    └── models.ckpt
+data/
+├── diabetes_beta_scrna.csv
+└── SraRunTable.csv
+
+checkpoints/
+└── models.ckpt
 ```
 
-Unzip this into the root of the repository:
+Once received, **manually place them** into the appropriate directories as shown above:
 
-```bash
-unzip scFoundation-T2D-assets.zip -d .
-```
-
-This ensures files are placed correctly under `data/` and `checkpoints/`.
+* Place `.csv` files inside the `data/` folder
+* Place `models.ckpt` inside the `checkpoints/` folder
 
 ---
 
