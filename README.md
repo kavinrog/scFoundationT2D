@@ -4,105 +4,142 @@ This repository provides a deep learning pipeline to classify Type 2 Diabetes (T
 
 ---
 
-## 🧬 Dataset
+## Dataset
 
-- **Gene Expression Matrix**: `data/diabetes_beta_scrna.csv`
-- **Metadata**: `data/SraRunTable.csv`
-- Assumes single-cell RNA-seq data and donor annotations.
+* **Gene Expression Matrix**: `data/diabetes_beta_scrna.csv`
+* **Metadata**: `data/SraRunTable.csv`
 
----
-
-## 🔧 Features
-
-- ✅ Preprocessing: log normalization, z-scoring, and random oversampling.
-- ✅ Pretrained Encoder (scFoundation-based).
-- ✅ BiDoRA linear classifier with Focal Loss.
-- ✅ MixUp augmentation during training.
-- ✅ Stratified 5-fold cross-validation.
-- ✅ Ensemble evaluation with AUC, F1, and plots.
-- ✅ Device-compatible: CPU / CUDA / Apple MPS.
+Make sure these files are placed inside the `data/` directory as shown in the project structure below. These are included in the provided `scFoundation-T2D-assets.zip` archive.
 
 ---
 
-## 📁 Project Structure
+## Features
 
+* ✅ Preprocessing: log normalization, z-scoring, and random oversampling.
+* ✅ Pretrained Encoder (scFoundation-based).
+* ✅ BiDoRA linear classifier with Focal Loss.
+* ✅ MixUp augmentation during training.
+* ✅ Stratified 5-fold cross-validation.
+* ✅ Ensemble evaluation with AUC, F1, and plots.
+* ✅ Device-compatible: CPU / CUDA / Apple MPS.
+
+---
+
+## Project Structure
+
+Here's the folder layout expected after setup:
+
+```
 scFoundation-T2D/
-├── checkpoints/           # Place pretrained models.ckpt here (ignored by git)
+├── checkpoints/
+│   └── models.ckpt
 ├── data/
 │   ├── diabetes_beta_scrna.csv
-│   └── SraRunTable.csv
+│   ├── SraRunTable.csv
+│   ├── load_data.py
+│   └── preprocess.py
 ├── model/
 │   ├── base_model.py
 │   ├── bidora.py
 │   ├── classifier.py
 │   └── loss.py
 ├── training/
-│   ├── train.py
+│   ├── __init__.py
+│   ├── callbacks.py
 │   ├── collator.py
 │   ├── metrics.py
-│   ├── callbacks.py
-├── main.py                # Entry point for training & evaluation
-├── requirements.txt       # Dependencies
+│   └── train.py
+├── .gitignore
+├── config.py
+├── main.py
+├── requirements.txt
 └── README.md
+```
 
 ---
 
-## 📦 Setup
+## Cloning the Repository
+
+```bash
+git clone https://github.com/your-username/scFoundation-T2D.git
+cd scFoundation-T2D
+```
+
+---
+
+## Setup
 
 ### 1. Create and activate virtual environment (optional but recommended)
 
 ```bash
 python -m venv scft2d
 source scft2d/bin/activate  # or scft2d\Scripts\activate on Windows
+```
 
-2. Install dependencies
+### 2. Install or upgrade pip and dependencies
 
+```bash
+python -m pip install --upgrade pip
 pip install -r requirements.txt
+```
 
-3. Place the pretrained encoder
+### 3. Download and unzip the assets (data + model checkpoint)
 
-Download or locate the pretrained encoder file and place it at:
+Download the ZIP file `scFoundation-T2D-assets.zip` containing both the dataset and pretrained model:
 
-checkpoints/models.ckpt
+```
+scFoundation-T2D-assets.zip
+├── data/
+│   ├── diabetes_beta_scrna.csv
+│   └── SraRunTable.csv
+└── checkpoints/
+    └── models.ckpt
+```
 
-This file is not included in the repo due to size.
+Unzip this into the root of the repository:
 
-⸻
+```bash
+unzip scFoundation-T2D-assets.zip -d .
+```
 
-🚀 Run the Pipeline
-
-python main.py
-
-This will:
-	•	Load and preprocess the data
-	•	Train across 5 folds
-	•	Evaluate an ensemble on a hold-out test set
-	•	Output AUC, F1, confusion matrix, and plots
-
-⸻
-
-📊 Output
-	•	📈 ROC Curve
-	•	🔲 Confusion Matrix
-	•	📊 Bar Plot of AUC and F1 Score
-	•	📋 Console logs of training + metrics
-
-⸻
-
-📝 Notes
-	•	Designed for small-to-medium scale single-cell studies
-	•	Ideal for classification of clinical phenotypes from RNA-seq
-	•	For reproducibility, random seeds are fixed (e.g., random_state=42)
-
-⸻
-
-📮 Contact
-
-For questions, feel free to open an issue or reach out directly.
-
-⸻
-
+This ensures files are placed correctly under `data/` and `checkpoints/`.
 
 ---
 
-Let me know if you want the Markdown saved into a file or included in your GitHub upload instructions.
+## Run the Pipeline
+
+```bash
+python main.py
+```
+
+This will:
+
+* Load and preprocess the data
+* Train across 5 folds
+* Evaluate an ensemble on a hold-out test set
+* Output AUC, F1, confusion matrix, and plots
+
+---
+
+## Output
+
+* ROC Curve
+* Confusion Matrix
+* Bar Plot of AUC and F1 Score
+* Console logs of training + metrics
+
+---
+
+## Notes
+
+* Designed for small-to-medium scale single-cell studies
+* Ideal for classification of clinical phenotypes from RNA-seq
+* For reproducibility, random seeds are fixed (e.g., random\_state=42)
+
+---
+
+## 📬 Contact
+
+For questions, feel free to open an issue or reach out directly.
+
+---
