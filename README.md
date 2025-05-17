@@ -2,7 +2,7 @@
 
 This repository provides a deep learning pipeline to classify Type 2 Diabetes (T2D) status from single-cell transcriptomic data using a pretrained encoder and a custom BiDoRA classifier architecture. The pipeline integrates data preprocessing, MixUp regularization, focal loss, and ensemble evaluation to ensure robustness on imbalanced datasets.
 
----
+This work is part of an ongoing research project under the guidance of Prof. Pengtao Xie at the PXie Lab, University of California, San Diego.
 
 ## Dataset
 
