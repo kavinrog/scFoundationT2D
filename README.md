@@ -61,7 +61,7 @@ scFoundation-T2D/
 ## Cloning the Repository
 
 ```bash
-git clone https://github.com/your-username/scFoundation-T2D.git
+git clone https://github.com/kavinrog/scFoundationT2D.git
 cd scFoundation-T2D
 ```
 
