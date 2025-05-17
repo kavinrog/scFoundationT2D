@@ -1,0 +1,45 @@
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Virtual environments
+venv/
+.venv/
+env/
+.scft2d/
+scft2d/
+.scft2d2/
+scft2d2/
+ENV/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Logs and debug files
+*.log
+*.out
+
+# MacOS metadata
+.DS_Store
+
+# Checkpoints or saved models
+checkpoints/
+*.ckpt
+
+# VSCode settings
+.vscode/
+
+# Python environment build artifacts
+*.egg-info/
+*.egg
+dist/
+build/
+
+# PyTorch Lightning cache
+lightning_logs/
+
+# PyCharm
+.idea/
