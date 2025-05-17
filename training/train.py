@@ -14,7 +14,7 @@ def run_cross_validation(balanced_df, feature_columns):
     models = []
     X_all = balanced_df[feature_columns].values
     y_all = balanced_df['labels'].values
-    skf = StratifiedKFold(n_splits=2, shuffle=True, random_state=42)
+    skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
     input_size = X_all.shape[1]
 
     for fold, (train_idx, val_idx) in enumerate(skf.split(X_all, y_all)):
